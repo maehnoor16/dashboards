@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OBE Automation Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">OBE AUTOMATION</a>
+        <button
+          class="navbar-toggler d-lg-none"
+          type="button"
+          aria-label="Toggle sidebar"
+        >
+          <i class="bi bi-list"></i>
+          <!-- Hamburger menu icon -->
+        </button>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar bg-light">
+      <div class="text-center py-4">
+        <img
+          src="profile.png"
+          class="rounded-circle mb-2"
+          alt="User"
+          style="width: 80px"
+        />
+        <h5>Student UI</h5>
+        <button class="btn btn-outline-secondary btn-sm">Logout</button>
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">Assessments</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">CLOs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">PLOs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Questions</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Sections</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content p-4">
+      <div class="container-fluid">
+        <div class="row mt-5">
+          <div class="col-md-4 col-lg-4">
+            <div class="card">
+              <div class="card-body text-center">
+                <h6>Assessments Attempted</h6>
+                <i class="bi bi-card-checklist fs-1"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="card">
+              <div class="card-body text-center">
+                <h6>Sections</h6>
+                <i class="bi bi-grid fs-1"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="card">
+              <div class="card-body text-center">
+                <h6>Enrolled Courses</h6>
+                <i class="bi bi-journal-bookmark fs-1"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-2 mb-2 chart-container"">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="mb-0 small-text-heading">PO Mapping Status</h2>
+            <button class="btn btn-info btn-sm transparent-button">
+              view details
+            </button>
+          </div>
+
+          <div class="graph-container">
+            <!-- Canvas element for Chart.js -->
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+
+        <div class="row mt-4 sheet-container"  >
+          <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h2 class="mb-0 grade-sheet small-text-heading">Grade Sheet</h2>
+              <button class="btn btn-info btn-sm">view details</button>
+            </div>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th>Subject</th>
+                  <th>Grade</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="normal-bold-text">OOP</td>
+                  <td class="normal-bold-text">2A</td>
+                  <td>
+                    <button class="btn btn-info btn-sm view-button">
+                      View
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="normal-bold-text">DSA</td>
+                  <td class="normal-bold-text">3B</td>
+                  <td>
+                    <button class="btn btn-info btn-sm view-button">
+                      View
+                    </button>
+                  </td>
+                </tr>
+                <!-- Add more subjects as necessary -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Responsive layout for 4 sections in the same row -->
+        <div class="mt-4">
+          <div class="row justify-content-center">
+            <!-- Questions Section -->
+            <div
+              class="col-12 col-md-5 my-2 mx-2 mb-md-0 section-container"
+            >
+              <div
+                class="questionSection d-flex justify-content-between align-items-center w-100"
+              >
+                <h6 class="mb-0 extra-bold-text large-text">Questions</h6>
+                <button class="btn btn-info btn-sm view-button">View</button>
+              </div>
+            </div>
+
+            <!-- PLOs Section -->
+            <div class="col-12 col-md-5 my-2 mx-2 mb-md-0 section-container">
+              <div
+                class="questionSection d-flex justify-content-between align-items-center w-100"
+              >
+                <h6 class="mb-0 extra-bold-text large-text">Assesments</h6>
+                <button class="btn btn-info btn-sm view-button">View</button>
+              </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="col-12 col-md-5 my-2 mx-2 mb-md-0 section-container">
+              <div
+                class="questionSection d-flex justify-content-between align-items-center w-100"
+              >
+                <h6 class="mb-0 extra-bold-text large-text">CLOs</h6>
+                <button class="btn btn-info btn-sm view-button">View</button>
+              </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="col-12 col-md-5 my-2 mx-2 mb-md-0 section-container">
+              <div
+                class="questionSection d-flex justify-content-between align-items-center w-100"
+              >
+                <h6 class="mb-0 extra-bold-text large-text">PLOs</h6>
+                <button class="btn btn-info btn-sm view-button">View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const sidebar = document.getElementById("sidebar");
+      const toggler = document.querySelector(".navbar-toggler");
+
+      toggler.addEventListener("click", () => {
+        sidebar.classList.toggle("show-sidebar");
+      });
+    </script>
+    <script>
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["January", "February", "March", "April", "May", "June"], // X-axis labels
+          datasets: [
+            {
+              // No label
+              data: [12000, 15000, 18000, 20000, 22000, 24000], // Y-axis data
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)", // January
+                "rgba(54, 162, 235, 0.2)", // February
+                "rgba(75, 192, 192, 0.2)", // March
+                "rgba(153, 102, 255, 0.2)", // April
+                "rgba(255, 159, 64, 0.2)", // May
+                "rgba(255, 206, 86, 0.2)", // June
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: false, // Hide legend
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true, // Ensures Y-axis starts at 0
+              ticks: {
+                stepSize: 10000, // Increase gap between Y-axis ticks
+              },
+              min: 0, // Set minimum Y-axis value
+              max: 30000, // Set maximum Y-axis value for more space
+            },
+            x: {
+              grid: {
+                display: false, // Remove vertical grid lines
+              },
+              ticks: {
+                padding: 20, // Increase the padding for X-axis labels (more space)
+              },
+              maxBarThickness: 50, // Control the maximum width of the bars (optional)
+              barPercentage: 0.5, // Adjusts the bar size (lower value = more space)
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

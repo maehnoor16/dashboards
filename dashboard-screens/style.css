@@ -1,0 +1,164 @@
+body {
+  /* background-color: #f9f5f0; */
+  background-color: #f3f2f2;
+  /* change background color */
+}
+/* Basic styling for sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 56px; /* Accounts for the navbar height */
+  height: 100%;
+  width: 250px;
+  background-color: #f8f9fa;
+  transition: transform 0.3s ease;
+  z-index: 9999; /* Ensure the sidebar is always on top */
+}
+.chart-container {
+  background-color: white;
+  padding: 20px;
+}
+.sheet-container {
+  background-color: white;
+  padding: 20px;
+}
+/* Hide sidebar on smaller screens (mobile/tablet) */
+@media (max-width: 991px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.show-sidebar {
+    transform: translateX(0);
+  }
+}
+.section-container {
+  background-color: white;
+}
+/* Main content styling */
+.main-content {
+  margin-left: 250px;
+  padding-top: 70px; /* Adjust for the navbar */
+  transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 991px) {
+  .main-content {
+    margin-left: 0;
+    padding-top: 70px; /* Ensures content is below the navbar on mobile/tablet */
+  }
+}
+
+/* Card styling */
+.card {
+  margin-bottom: 20px;
+}
+.card-body button {
+  margin-top: 10px;
+}
+.card-body h6 {
+  font-weight: bold;
+}
+
+/* Table styling */
+.table {
+  margin-top: 20px;
+}
+
+.table thead {
+  background-color: #f1f1f1;
+}
+
+/* Navbar toggler */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
+
+.navbar-toggler i {
+  font-size: 1.5rem;
+}
+
+/* Ensure sidebar toggle button only shows on smaller screens */
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+/* Miscellaneous styling */
+.text-primary {
+  color: #007bff !important;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+.questionSection {
+  padding: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  gap: 5px;
+}
+.graph-container {
+  width: 100%;
+  /* max-width: 1200px; Set a maximum width */
+  height: 300px;
+  margin: 0 auto; /* Center the container */
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 500px;
+}
+.extra-bold-text {
+  font-weight: 800; /* or you can use bold if you prefer */
+}
+.normal-bold-text {
+  font-weight: 700; /* or you can use bold if you prefer */
+}
+.large-text {
+  font-size: 18px;
+}
+.small-text-heading {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(103, 164, 184);
+}
+.grade-sheet {
+  color: rgb(53, 88, 100);
+}
+.transparent-button {
+  background-color: transparent;
+  border: 1px solid purple !important;
+  border-color: purple;
+  color: purple;
+  &:active {
+    background-color: transparent !important;
+    color: purple;
+  }
+  &:hover {
+    background-color: transparent;
+    color: purple;
+  }
+  &:focus {
+    background-color: transparent;
+    color: purple !important;
+  }
+}
+
+.view-button {
+  color: white;
+}
+
+.total-count {
+  font-size: 20px;
+  font-weight: bold;
+}

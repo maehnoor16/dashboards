@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OBE Automation Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">OBE AUTOMATION</a>
+        <button
+          class="navbar-toggler d-lg-none"
+          type="button"
+          aria-label="Toggle sidebar"
+        >
+          <i class="bi bi-list"></i>
+          <!-- Hamburger menu icon -->
+        </button>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar bg-light">
+      <div class="text-center py-4">
+        <img
+          src="profile.png"
+          class="rounded-circle mb-2"
+          alt="User"
+          style="width: 80px"
+        />
+        <h5>Admin UI</h5>
+        <button class="btn btn-outline-secondary btn-sm">Logout</button>
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">Assessments</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">CLOs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">PLOs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Questions</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Sections</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content p-4">
+      <div class="container-fluid">
+        <div class="row mt-5">
+          <div class="col-md-4 col-lg-4">
+            <div class="card">
+              <div
+                class="card-body text-center d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <h6>Total Students</h6>
+                  <p class="total-count">200</p>
+                </div>
+                <i class="bi bi-card-checklist fs-1"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="card">
+              <div
+                class="card-body text-center d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <h6>Total Employees</h6>
+                  <p class="total-count">200</p>
+                </div>
+                <i class="bi bi-grid fs-1"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="card">
+              <div
+                class="card-body text-center d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <h6>Total Programs</h6>
+                  <p class="total-count">200</p>
+                </div>
+                <i class="bi bi-journal-bookmark fs-1"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-2 mb-2 chart-container">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="mb-0 small-text-heading">PO Mapping Status</h2>
+            <button class="btn btn-info btn-sm transparent-button">
+              view details
+            </button>
+          </div>
+
+          <div class="graph-container">
+            <!-- Canvas element for Chart.js -->
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+
+        <div class="sheet-container">
+          <h2>Grade Sheet</h2>
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>OOP - 2A</td>
+                <td>
+                  <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                  <a href="#" class="btn btn-secondary btn-sm">View</a>
+                </td>
+              </tr>
+              <tr>
+                <td>DSA - 3B</td>
+                <td>
+                  <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                  <a href="#" class="btn btn-secondary btn-sm">View</a>
+                </td>
+              </tr>
+              <tr>
+                <td>ACP - 5A</td>
+                <td>
+                  <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                  <a href="#" class="btn btn-secondary btn-sm">View</a>
+                </td>
+              </tr>
+              <tr>
+                <td>DC - 7A</td>
+                <td>
+                  <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                  <a href="#" class="btn btn-secondary btn-sm">View</a>
+                </td>
+              </tr>
+              <tr>
+                <td>OS - 5A</td>
+                <td>
+                  <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                  <a href="#" class="btn btn-secondary btn-sm">View</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Responsive layout for 4 sections in the same row -->
+        <div
+          class="d-flex justify-content-between align-items-center mt-4 flex-column flex-md-row w-100"
+        >
+          <!-- Questions Section -->
+          <div class="mx-2 my-2 mb-2 mb-md-0 section-container w-100">
+            <div
+              class="questionSection d-flex align-items-center flex-column w-100"
+            >
+              <h6 class="mb-0 extra-bold-text large-text">Courses</h6>
+              <hr class="my-3" />
+              <div
+                class="d-flex justify-content-around align-items-center w-100 p-0 m-0 mt-2"
+                style="border-top: 1px solid black; width: 100%"
+              >
+                <button
+                  class="btn btn-info view-button mt-4"
+                  style="background-color: rgb(96, 176, 96); border: none"
+                >
+                  Add
+                </button>
+                <button class="btn btn-info view-button mt-4">Change</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PLOs Section -->
+          <div class="mb-2 mb-md-0 mx-2 my-2 section-container w-100">
+            <div
+              class="questionSection d-flex justify-content-between align-items-center flex-column w-100"
+            >
+              <h6 class="mb-0 extra-bold-text large-text">Sections</h6>
+              <hr class="my-3" />
+              <div
+                class="d-flex justify-content-around align-items-center w-100 p-0 m-0 mt-2"
+                style="border-top: 1px solid black; width: 100%"
+              >
+                <button
+                  class="btn btn-info view-button mt-4"
+                  style="background-color: rgb(96, 176, 96); border: none"
+                >
+                  Add
+                </button>
+                <button class="btn btn-info view-button mt-4">Change</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3 -->
+          <div class="mb-2 mx-2 mb-md-0 my-2 section-container w-100">
+            <div
+              class="questionSection d-flex justify-content-between align-items-center flex-column w-100"
+            >
+              <h6 class="mb-0 extra-bold-text large-text">Assesments</h6>
+              <hr class="my-3" />
+              <div
+                class="d-flex justify-content-around align-items-center w-100 p-0 m-0 mt-2"
+                style="border-top: 1px solid black; width: 100%"
+              >
+                <button
+                  class="btn btn-info view-button mt-4"
+                  style="background-color: rgb(96, 176, 96); border: none"
+                >
+                  Add
+                </button>
+                <button class="btn btn-info view-button mt-4">Change</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="d-flex justify-content-between align-items-center mt-4 flex-column flex-md-row w-100"
+        >
+          <!-- Questions Section -->
+          <div class="mx-2 my-2 mb-2 mb-md-0 section-container w-100">
+            <div
+              class="questionSection d-flex align-items-center flex-column w-100"
+            >
+              <h6 class="mb-0 extra-bold-text large-text">Questions</h6>
+              <hr class="my-3" />
+              <div
+                class="d-flex justify-content-around align-items-center w-100 p-0 m-0 mt-2"
+                style="border-top: 1px solid black; width: 100%"
+              >
+                <button
+                  class="btn btn-info view-button mt-4"
+                  style="background-color: rgb(96, 176, 96); border: none"
+                >
+                  Add
+                </button>
+                <button class="btn btn-info view-button mt-4">Change</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PLOs Section -->
+          <div class="mb-2 mx-2 mb-md-0 my-2 section-container w-100">
+            <div
+              class="questionSection d-flex justify-content-between align-items-center flex-column w-100"
+            >
+              <h6 class="mb-0 extra-bold-text large-text">CLOs</h6>
+              <hr class="my-3" />
+              <div
+                class="d-flex justify-content-around align-items-center w-100 p-0 m-0 mt-2"
+                style="border-top: 1px solid black; width: 100%"
+              >
+                <button
+                  class="btn btn-info view-button mt-4"
+                  style="background-color: rgb(96, 176, 96); border: none"
+                >
+                  Add
+                </button>
+                <button class="btn btn-info view-button mt-4">Change</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3 -->
+          <div class="mb-2 mx-2 mb-md-0 my-2 section-container w-100">
+            <div
+              class="questionSection d-flex justify-content-between align-items-center flex-column w-100"
+            >
+              <h6 class="mb-0 extra-bold-text large-text">PLOs</h6>
+              <hr class="my-3" />
+              <div
+                class="d-flex justify-content-around align-items-center w-100 p-0 m-0 mt-2"
+                style="border-top: 1px solid black; width: 100%"
+              >
+                <button
+                  class="btn btn-info view-button mt-4"
+                  style="background-color: rgb(96, 176, 96); border: none"
+                >
+                  Add
+                </button>
+                <button class="btn btn-info view-button mt-4">Change</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const sidebar = document.getElementById("sidebar");
+      const toggler = document.querySelector(".navbar-toggler");
+
+      toggler.addEventListener("click", () => {
+        sidebar.classList.toggle("show-sidebar");
+      });
+    </script>
+    <script>
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["January", "February", "March", "April", "May", "June"], // X-axis labels
+          datasets: [
+            {
+              // No label
+              data: [12000, 15000, 18000, 20000, 22000, 24000], // Y-axis data
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)", // January
+                "rgba(54, 162, 235, 0.2)", // February
+                "rgba(75, 192, 192, 0.2)", // March
+                "rgba(153, 102, 255, 0.2)", // April
+                "rgba(255, 159, 64, 0.2)", // May
+                "rgba(255, 206, 86, 0.2)", // June
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: false, // Hide legend
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true, // Ensures Y-axis starts at 0
+              ticks: {
+                stepSize: 10000, // Increase gap between Y-axis ticks
+              },
+              min: 0, // Set minimum Y-axis value
+              max: 30000, // Set maximum Y-axis value for more space
+            },
+            x: {
+              grid: {
+                display: false, // Remove vertical grid lines
+              },
+              ticks: {
+                padding: 20, // Increase the padding for X-axis labels (more space)
+              },
+              maxBarThickness: 50, // Control the maximum width of the bars (optional)
+              barPercentage: 0.5, // Adjusts the bar size (lower value = more space)
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
